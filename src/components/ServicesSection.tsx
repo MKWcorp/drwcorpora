@@ -1,96 +1,86 @@
-import { Briefcase, BarChart3, Users, Zap, Shield, Lightbulb } from 'lucide-react'
+import { useState } from 'react'
 import '../styles/services.css'
 
 export default function ServicesSection() {
-  const services = [
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const categories = ['All', 'Aesthetic & Skincare', 'Wellness', 'Food & Beverages', 'Hospitality']
+
+  const clients = [
     {
-      icon: Briefcase,
-      title: 'Konsultasi Bisnis',
-      description: 'Strategi bisnis yang disesuaikan dengan kebutuhan perusahaan Anda untuk pertumbuhan optimal.',
-      details: [
-        'Analisis pasar',
-        'Strategi kompetitif',
-        'Perencanaan operasional'
-      ]
+      id: 1,
+      name: 'DZAWANI VILLA',
+      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIVILLA_0aab53a4.png',
+      category: 'Hospitality'
     },
     {
-      icon: BarChart3,
-      title: 'Analisis Data',
-      description: 'Transformasi data menjadi insight berharga untuk pengambilan keputusan yang lebih baik dan akurat.',
-      details: [
-        'Business intelligence',
-        'Predictive analytics',
-        'Dashboard reporting'
-      ]
+      id: 2,
+      name: 'DZAWANI TOUR',
+      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/dzawanitour_b4df90ff.webp',
+      category: 'Wellness'
     },
     {
-      icon: Users,
-      title: 'Pengembangan SDM',
-      description: 'Program pelatihan dan pengembangan untuk meningkatkan kompetensi dan produktivitas tim Anda.',
-      details: [
-        'Training programs',
-        'Leadership development',
-        'Team building'
-      ]
+      id: 3,
+      name: 'DZAWANI KOST',
+      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIKOSTLOGO_8998fa7c.png',
+      category: 'Hospitality'
     },
     {
-      icon: Zap,
-      title: 'Transformasi Digital',
-      description: 'Solusi teknologi modern untuk mengoptimalkan proses bisnis dan meningkatkan efisiensi operasional.',
-      details: [
-        'Digital strategy',
-        'System integration',
-        'Process automation'
-      ]
+      id: 4,
+      name: 'DRW SKINCARE',
+      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/logobeautycenterpink_a38bad89.webp',
+      category: 'Aesthetic & Skincare'
     },
     {
-      icon: Shield,
-      title: 'Manajemen Risiko',
-      description: 'Identifikasi dan mitigasi risiko bisnis secara komprehensif untuk melindungi aset perusahaan Anda.',
-      details: [
-        'Risk assessment',
-        'Compliance',
-        'Crisis management'
-      ]
+      id: 5,
+      name: 'DRW TRANS',
+      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DRWTRANSLOGO1_e0565602.png',
+      category: 'Wellness'
     },
     {
-      icon: Lightbulb,
-      title: 'Inovasi & R&D',
-      description: 'Mendorong inovasi produk dan layanan untuk tetap kompetitif di pasar yang dinamis.',
-      details: [
-        'Product innovation',
-        'Market research',
-        'Technology scouting'
-      ]
+      id: 6,
+      name: 'DZAWANI TRAVEL',
+      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/travelindoo-01_0e4a2730.png',
+      category: 'Wellness'
     }
   ]
+
+  const filteredClients = activeCategory === 'All' 
+    ? clients 
+    : clients.filter(client => client.category === activeCategory)
 
   return (
     <section id="services" className="services">
       <div className="container">
         <div className="services-header">
           <h2>Layanan Kami</h2>
-          <p>Kami menghadirkan rangkaian layanan komprehensif untuk mendukung pertumbuhan bisnis Anda di era modern.</p>
+          <p>Kami telah bekerja sama dengan berbagai brand terkemuka untuk menghadirkan solusi terbaik.</p>
         </div>
-        <div className="services-grid">
-          {services.map((service, index) => {
-            const Icon = service.icon
-            return (
-              <div key={index} className="service-card">
-                <div className="service-icon">
-                  <Icon size={40} />
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul className="service-details">
-                  {service.details.map((detail, idx) => (
-                    <li key={idx}>{detail}</li>
-                  ))}
-                </ul>
+
+        {/* Category Filter */}
+        <div className="category-filter">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Logo Grid */}
+        <div className="clients-grid">
+          {filteredClients.map((client) => (
+            <div key={client.id} className="client-card">
+              <div className="client-logo">
+                <img src={client.logo} alt={client.name} />
               </div>
-            )
-          })}
+            </div>
+          ))}
         </div>
+
         <div className="services-cta">
           <p>Ingin mengetahui bagaimana layanan kami dapat membantu bisnis Anda?</p>
           <button className="btn btn-primary">Konsultasi Gratis Sekarang</button>
