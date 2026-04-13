@@ -1,12 +1,13 @@
 .hero {
   background: linear-gradient(135deg, #5B4B8A 0%, #8B5CF6 100%);
   color: white;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  padding-top: 80px;
 }
 
 .hero::before {
