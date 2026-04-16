@@ -16,22 +16,25 @@ export default function Navbar() {
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container navbar-container">
-        <div className="navbar-logo">
+      <div className="navbar-container">
+        {/* Logo - kiri */}
+        <a href="#" className="navbar-logo">
           <div className="logo-icon">DRW</div>
-          <span>CORPORA</span>
-        </div>
+          <span className="logo-text">CORPORA</span>
+        </a>
 
-        <button className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
+        {/* Menu - tengah */}
+        <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+          <li><a href="#about" onClick={() => setIsOpen(false)}>Tentang</a></li>
+          <li><a href="#services" onClick={() => setIsOpen(false)}>Layanan</a></li>
+          <li><a href="#gallery" onClick={() => setIsOpen(false)}>Galeri</a></li>
+          <li><a href="#contact" onClick={() => setIsOpen(false)}>Kontak</a></li>
+        </ul>
+
+        {/* Hamburger - mobile */}
+        <button className="navbar-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
       </div>
     </nav>
   )
