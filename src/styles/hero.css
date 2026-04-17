@@ -1,78 +1,98 @@
 .hero {
-  background: linear-gradient(135deg, #5B4B8A 0%, #8B5CF6 100%);
-  color: white;
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   overflow: hidden;
-  padding-top: 80px;
 }
 
-.hero::before {
-  content: '';
+.hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
-  opacity: 0.5;
+  inset: 0;
+  background-image: url("/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(96, 86, 154, 0.78) 0%,
+    rgba(96, 86, 154, 0.60) 50%,
+    rgba(96, 86, 154, 0.72) 100%
+  );
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
+  text-align: center;
+  padding: 120px 0 80px;
 }
 
 .hero-text {
-  text-align: center;
-  animation: fadeInUp 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-logo-wrap {
+  margin-bottom: 1rem;
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  animation: fadeInDown 0.8s ease both;
 }
 
 .hero-text h1 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 4px;
+  margin: 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 0.8s ease 0.15s both;
 }
 
-.hero-text p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
+.hero-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin: 0;
+  animation: fadeInUp 0.8s ease 0.3s both;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 0.92; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    min-height: 400px;
+  .hero-logo {
+    width: 90px;
+    height: 90px;
   }
-
-  .hero-text h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
+  .hero-content {
+    padding: 100px 1.5rem 60px;
   }
 }

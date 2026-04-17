@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
@@ -9,7 +8,7 @@ import ContactFooter from './components/ContactFooter'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: '#EEEBE6' }}>
       <Navbar />
       <HeroSection />
       <AboutSection />

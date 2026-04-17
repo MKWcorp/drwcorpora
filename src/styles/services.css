@@ -1,5 +1,5 @@
 .services {
-  background: #ffffff;
+  background: #EEEBE6;
   padding: 80px 0;
 }
 
@@ -34,7 +34,7 @@
 .filter-btn {
   padding: 0.75rem 1.5rem;
   border: 2px solid #e0e0e0;
-  background: white;
+  background: #EEEBE6;
   color: #333;
   border-radius: 25px;
   cursor: pointer;
@@ -63,7 +63,7 @@
 }
 
 .client-card {
-  background: white;
+  background: #EEEBE6;
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
@@ -116,7 +116,7 @@
 }
 
 .services-cta .btn {
-  background: white;
+  background: #EEEBE6;
   color: #e91e63;
   font-weight: 600;
   padding: 12px 30px;
