@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import DoctorSection from './components/DoctorSection'
 import AboutSection from './components/AboutSection'
 import VisionMissionSection from './components/VisionMissionSection'
 import ServicesSection from './components/ServicesSection'
@@ -11,6 +12,7 @@ function App() {
     <div className="min-h-screen" style={{ backgroundColor: '#EEEBE6' }}>
       <Navbar />
       <HeroSection />
+      <DoctorSection />
       <AboutSection />
       <VisionMissionSection />
       <ServicesSection />

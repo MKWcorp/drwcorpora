@@ -1,0 +1,109 @@
+.doctor-section {
+  background: #EEEBE6;
+  padding: 80px 0;
+}
+
+.doctor-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  background: #EEEBE6;
+  border-radius: 0;
+}
+
+.doctor-photo-wrap {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+
+.doctor-photo {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.doctor-info {
+  flex: 1;
+  padding-top: 8px;
+}
+
+.doctor-name {
+  font-family: 'Lora', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.doctor-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #60569A;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.doctor-bio {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.doctor-achievements h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.doctor-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doctor-achievements ul li {
+  font-size: 0.92rem;
+  color: #444;
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+}
+
+.doctor-achievements ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #60569A;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .doctor-card {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .doctor-photo-wrap {
+    flex: unset;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .doctor-photo {
+    height: 280px;
+  }
+
+  .doctor-name {
+    font-size: 1.25rem;
+  }
+}
