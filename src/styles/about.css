@@ -1,4 +1,4 @@
-/* About Us Section - background campuran #EEEBE6 + 10% #333333 = #D8D5CF */
+/* About Us Section */
 .about {
   background: #D8D5CF;
   width: 100%;
@@ -13,13 +13,21 @@
   max-width: 1280px;
   min-height: 500px;
   margin: 0 auto;
-  padding: 64px 64px;
+  padding: 64px 0 64px 0;
   box-sizing: border-box;
-  gap: 48px;
 }
 
+/* Layout teks kiri: vertical, 720px, gap 32px, padding right 32px left 64px */
 .about-left {
-  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 720px;
+  max-width: 720px;
+  padding-left: 64px;
+  padding-right: 32px;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .about-title {
@@ -27,8 +35,8 @@
   font-size: 2.4rem;
   font-weight: 700;
   color: #60569A;
-  margin-bottom: 20px;
   line-height: 1.2;
+  margin: 0;
 }
 
 .about-desc {
@@ -36,46 +44,65 @@
   color: #333;
   line-height: 1.85;
   font-family: monospace;
+  margin: 0;
 }
 
+/* Foto gedung: 480x372, radius top-left 24px bottom-left 24px */
 .about-right {
   display: flex;
   justify-content: flex-end;
+  flex: 1;
 }
 
 .about-img-wrap {
-  width: 100%;
-  max-width: 480px;
-  border-radius: 10px;
+  width: 480px;
+  height: 372px;
+  flex-shrink: 0;
   overflow: hidden;
+  border-radius: 24px 0 0 24px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.13);
 }
 
 .about-img {
-  width: 100%;
-  height: 320px;
+  width: 480px;
+  height: 372px;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
-@media (max-width: 768px) {
-  .about {
-    padding: 60px 0;
-  }
+@media (max-width: 900px) {
   .about-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    padding: 48px 24px;
+    min-height: unset;
     gap: 32px;
   }
+
   .about-left {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
     padding-right: 0;
   }
+
   .about-title {
     font-size: 1.8rem;
   }
+
   .about-right {
     justify-content: center;
+    width: 100%;
   }
+
+  .about-img-wrap {
+    width: 100%;
+    height: 260px;
+    border-radius: 16px;
+  }
+
   .about-img {
-    height: 220px;
+    width: 100%;
+    height: 260px;
   }
 }
