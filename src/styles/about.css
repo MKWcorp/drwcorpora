@@ -1,14 +1,21 @@
 /* About Us Section - background campuran #EEEBE6 + 10% #333333 = #D8D5CF */
 .about {
   background: #D8D5CF;
-  padding: 80px 0;
+  width: 100%;
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 64px 64px;
+  box-sizing: border-box;
+  gap: 48px;
 }
 
 .about-left {

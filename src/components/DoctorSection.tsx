@@ -3,7 +3,6 @@ import '../styles/doctor.css'
 export default function DoctorSection() {
   return (
     <section className="doctor-section">
-      <div className="container">
         <div className="doctor-card">
           <div className="doctor-photo-wrap">
             <img src="/dr-wahyu.jpg" alt="dr. Wahyu Triasmara" className="doctor-photo" />
@@ -34,7 +33,6 @@ export default function DoctorSection() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   )
 }

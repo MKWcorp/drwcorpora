@@ -3,7 +3,7 @@ import '../styles/vision.css'
 export default function VisionMissionSection() {
   return (
     <section className="vision-mission">
-      <div className="container">
+      <div className="vm-container">
         {/* Vision Row: icon kiri, teks kanan */}
         <div className="vm-row vision-row">
           <div className="vm-icon-wrap">

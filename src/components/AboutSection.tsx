@@ -3,7 +3,6 @@ import '../styles/about.css'
 export default function AboutSection() {
   return (
     <section id="about" className="about">
-      <div className="container">
         <div className="about-content">
           <div className="about-left">
             <h2 className="about-title">About Us</h2>
@@ -20,7 +19,6 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   )
 }

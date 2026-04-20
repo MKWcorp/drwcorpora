@@ -1,14 +1,26 @@
 /* Vision Mission Section */
 .vision-mission {
   background: #EEEBE6;
-  padding: 80px 0;
+  width: 100%;
+}
+
+.vm-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  min-height: 672px;
+  margin: 0 auto;
+  padding: 64px 128px;
+  box-sizing: border-box;
+  gap: 32px;
+  justify-content: center;
 }
 
 .vm-row {
   display: flex;
   align-items: center;
   gap: 60px;
-  padding: 40px 0;
 }
 
 .vision-row {
@@ -80,8 +92,10 @@
 }
 
 @media (max-width: 768px) {
-  .vision-mission {
-    padding: 60px 0;
+  .vm-container {
+    padding: 48px 24px;
+    min-height: unset;
+    gap: 24px;
   }
 
   .vm-row {
