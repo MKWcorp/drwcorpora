@@ -37,38 +37,53 @@
   flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 42px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
+/* Logo icon image */
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.35s ease;
+}
+
+.navbar.scrolled .logo-img {
+  filter: none;
+}
+
+/* Logo text group */
+.logo-text-group {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 800;
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.5px;
-  transition: all 0.35s ease;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1;
 }
 
-.navbar.scrolled .logo-icon {
-  background: linear-gradient(135deg, #5B4B8A 0%, #8B5CF6 100%);
-  border-color: transparent;
-  color: #fff;
-}
-
-.logo-text {
-  font-size: 18px;
+.logo-name {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 20px;
   font-weight: 700;
+  line-height: 20px;
   color: #fff;
-  letter-spacing: 1.5px;
+  letter-spacing: 0;
   transition: color 0.35s ease;
 }
 
-.navbar.scrolled .logo-text {
+.logo-sub {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.31em;
+  transition: color 0.35s ease;
+}
+
+.navbar.scrolled .logo-name {
   color: #3d2d6e;
+}
+
+.navbar.scrolled .logo-sub {
+  color: #5B4B8A;
 }
 
 /* ===== MENU ===== */

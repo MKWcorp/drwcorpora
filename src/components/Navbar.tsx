@@ -19,8 +19,11 @@ export default function Navbar() {
       <div className="navbar-container">
         {/* Logo - kiri */}
         <a href="#" className="navbar-logo">
-          <div className="logo-icon">DRW</div>
-          <span className="logo-text">CORPORA</span>
+          <img src="/drw-logo-icon.png" alt="DRW Logo" className="logo-img" />
+          <div className="logo-text-group">
+            <span className="logo-name">DRW CORPORA</span>
+            <span className="logo-sub">INDONESIA</span>
+          </div>
         </a>
 
         {/* Menu - tengah */}
