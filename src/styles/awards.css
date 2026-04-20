@@ -2,16 +2,13 @@
 .awards-section {
   width: 100%;
   background: #1a1a2e;
-  display: flex;
-  justify-content: center;
   overflow: hidden;
 }
 
-/* Slider container: 1280x832px */
+/* Slider container: full width x 832px */
 .awards-slider {
   position: relative;
   width: 100%;
-  max-width: 1280px;
   height: 832px;
   overflow: hidden;
 }
