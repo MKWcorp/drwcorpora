@@ -4,92 +4,50 @@ import { useLang } from '../i18n/LanguageContext'
 import { translations, t } from '../i18n/translations'
 
 export default function ServicesSection() {
-  const [activeCategory, setActiveCategory] = useState('All')
-  const [currentPage, setCurrentPage] = useState(1)
+  const { lang } = useLang()
+  const svc = translations.services
 
+  const [activeCategoryKey, setActiveCategoryKey] = useState('all')
+  const [currentPage, setCurrentPage] = useState(1)
   const ITEMS_PER_PAGE = 9
 
-  const categories = ['All', 'Aesthetic & Skincare', 'Wellness', 'Food & Beverages', 'Hospitality', 'CSR']
+  const categoryMap: Record<string, string> = {
+    all:         'All',
+    aesthetic:   'Aesthetic & Skincare',
+    wellness:    'Wellness',
+    food:        'Food & Beverages',
+    hospitality: 'Hospitality',
+    csr:         'CSR',
+  }
 
-  const clients = [
-    {
-      id: 1,
-      name: 'DZAWANI VILLA',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIVILLA_0aab53a4.png',
-      category: 'Hospitality'
-    },
-    {
-      id: 2,
-      name: 'DZAWANI TOUR',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/dzawanitour_b4df90ff.webp',
-      category: 'Wellness'
-    },
-    {
-      id: 3,
-      name: 'DZAWANI KOST',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIKOSTLOGO_8998fa7c.png',
-      category: 'Hospitality'
-    },
-    {
-      id: 4,
-      name: 'DRW SKINCARE',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/logobeautycenterpink_a38bad89.webp',
-      category: 'Aesthetic & Skincare'
-    },
-    {
-      id: 5,
-      name: 'DRW TRANS',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DRWTRANSLOGO1_e0565602.png',
-      category: 'Wellness'
-    },
-    {
-      id: 6,
-      name: 'DZAWANI TRAVEL',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/travelindoo-01_0e4a2730.png',
-      category: 'Wellness'
-    },
-    {
-      id: 7,
-      name: 'HOTEL DZAWANI',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIVILLA_0aab53a4.png',
-      category: 'Hospitality'
-    },
-    {
-      id: 8,
-      name: 'DRW FOUNDATION',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/logobeautycenterpink_a38bad89.webp',
-      category: 'CSR'
-    },
-    {
-      id: 9,
-      name: 'BEAUTY CENTER',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/logobeautycenterpink_a38bad89.webp',
-      category: 'Aesthetic & Skincare'
-    },
-    {
-      id: 10,
-      name: 'DRW KLINIK',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DRWTRANSLOGO1_e0565602.png',
-      category: 'Aesthetic & Skincare'
-    },
-    {
-      id: 11,
-      name: 'DZAWANI RESTO',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/dzawanitour_b4df90ff.webp',
-      category: 'Food & Beverages'
-    },
-    {
-      id: 12,
-      name: 'DRW WELLNESS',
-      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/travelindoo-01_0e4a2730.png',
-      category: 'Wellness'
-    },
+  const categories = [
+    { key: 'all',         label: t(svc.categories.all, lang) },
+    { key: 'aesthetic',   label: t(svc.categories.aesthetic, lang) },
+    { key: 'wellness',    label: t(svc.categories.wellness, lang) },
+    { key: 'food',        label: t(svc.categories.food, lang) },
+    { key: 'hospitality', label: t(svc.categories.hospitality, lang) },
+    { key: 'csr',         label: t(svc.categories.csr, lang) },
   ]
 
-  const activeCategory = categoryMap[activeCategoryKey] || 'All'
+  const clients = [
+    { id: 1,  name: 'DZAWANI VILLA',   logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIVILLA_0aab53a4.png',          category: 'Hospitality' },
+    { id: 2,  name: 'DZAWANI TOUR',    logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/dzawanitour_b4df90ff.webp',          category: 'Wellness' },
+    { id: 3,  name: 'DZAWANI KOST',    logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIKOSTLOGO_8998fa7c.png',       category: 'Hospitality' },
+    { id: 4,  name: 'DRW SKINCARE',    logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/logobeautycenterpink_a38bad89.webp', category: 'Aesthetic & Skincare' },
+    { id: 5,  name: 'DRW TRANS',       logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DRWTRANSLOGO1_e0565602.png',         category: 'Wellness' },
+    { id: 6,  name: 'DZAWANI TRAVEL',  logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/travelindoo-01_0e4a2730.png',        category: 'Wellness' },
+    { id: 7,  name: 'HOTEL DZAWANI',   logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DZAWANIVILLA_0aab53a4.png',          category: 'Hospitality' },
+    { id: 8,  name: 'DRW FOUNDATION',  logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/logobeautycenterpink_a38bad89.webp', category: 'CSR' },
+    { id: 9,  name: 'BEAUTY CENTER',   logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/logobeautycenterpink_a38bad89.webp', category: 'Aesthetic & Skincare' },
+    { id: 10, name: 'DRW KLINIK',      logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/DRWTRANSLOGO1_e0565602.png',         category: 'Aesthetic & Skincare' },
+    { id: 11, name: 'DZAWANI RESTO',   logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/dzawanitour_b4df90ff.webp',          category: 'Food & Beverages' },
+    { id: 12, name: 'DRW WELLNESS',    logo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663213875053/HLcyMibnZbVVEiyRAtini3/travelindoo-01_0e4a2730.png',        category: 'Wellness' },
+  ]
+
+  const activeCategoryValue = categoryMap[activeCategoryKey] || 'All'
   const filteredClients = activeCategoryKey === 'all'
     ? clients
-    : clients.filter(client => client.category === activeCategory)
+    : clients.filter(client => client.category === activeCategoryValue)
 
   const totalPages = Math.ceil(filteredClients.length / ITEMS_PER_PAGE)
   const paginatedClients = filteredClients.slice(
@@ -163,6 +121,6 @@ export default function ServicesSection() {
           </div>
         )}
       </div>
-</section>
+    </section>
   )
 }
