@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import '../styles/gallery.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useLang } from '../i18n/LanguageContext'
 import { translations, t } from '../i18n/translations'
 
 export default function GallerySection() {
   const { lang } = useLang()
+  const refTitle = useScrollReveal<HTMLHeadingElement>({ threshold: 0.2 })
+  const refGrid = useScrollReveal<HTMLDivElement>({ threshold: 0.1 })
   const g = translations.gallery
   const svc = translations.services
 
@@ -31,7 +34,7 @@ export default function GallerySection() {
 
   return (
     <section id="gallery" className="gallery-section">
-      <h2 className="gallery-title">{t(g.title, lang)}</h2>
+      <h2 className="gallery-title reveal reveal-up" ref={refTitle}>{t(g.title, lang)}</h2>
       <div className="gallery-filters">
         {CATEGORIES.map((cat) => (
           <button
@@ -43,7 +46,7 @@ export default function GallerySection() {
           </button>
         ))}
       </div>
-      <div className="gallery-grid">
+      <div className="gallery-grid reveal reveal-up" ref={refGrid}>
         {filtered.map((item) => (
           <div key={item.id} className="gallery-card">
             <img src={item.src} alt={item.title} className="gallery-card-img" />

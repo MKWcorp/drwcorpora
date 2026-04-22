@@ -1,18 +1,21 @@
 import '../styles/doctor.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useLang } from '../i18n/LanguageContext'
 import { translations, t } from '../i18n/translations'
 
 export default function DoctorSection() {
   const { lang } = useLang()
+  const refPhoto = useScrollReveal<HTMLDivElement>({ threshold: 0.15 })
+  const refInfo = useScrollReveal<HTMLDivElement>({ threshold: 0.15 })
   const d = translations.doctor
 
   return (
     <section className="doctor-section">
       <div className="doctor-card">
-        <div className="doctor-photo-wrap">
+        <div className="doctor-photo-wrap reveal reveal-left" ref={refPhoto}>
           <img src="/dr-wahyu.jpg" alt="dr. Wahyu Triasmara" className="doctor-photo" />
         </div>
-        <div className="doctor-info">
+        <div className="doctor-info reveal reveal-right" ref={refInfo}>
           <h2 className="doctor-name">dr. Wahyu Triasmara, M.Kes.AAAM, AIFO-K</h2>
           <p className="doctor-title">{t(d.title, lang)}</p>
           <p className="doctor-bio">{t(d.bio, lang)}</p>

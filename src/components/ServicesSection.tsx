@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import '../styles/services.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useLang } from '../i18n/LanguageContext'
 import { translations, t } from '../i18n/translations'
 
 export default function ServicesSection() {
   const { lang } = useLang()
   const svc = translations.services
+  const refHeader = useScrollReveal<HTMLDivElement>({ threshold: 0.2 })
+  const refFrame = useScrollReveal<HTMLDivElement>({ threshold: 0.1 })
 
   const [activeCategoryKey, setActiveCategoryKey] = useState('all')
   const [currentPage, setCurrentPage] = useState(1)
@@ -63,7 +66,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="services">
       {/* Header */}
-      <div className="services-header">
+      <div className="services-header reveal reveal-up" ref={refHeader}>
         <h2>{t(svc.title, lang)}</h2>
       </div>
 
@@ -81,7 +84,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Cards Frame — Flow: Vertical, Width: Fill (1280px), Height: Hug, Padding: 64px, Gap: 32px, BG: #EEEBE6 */}
-      <div className="services-frame">
+      <div className="services-frame reveal reveal-up" ref={refFrame}>
         <div className="clients-grid">
           {paginatedClients.map((client) => (
             <div key={client.id} className="client-card">

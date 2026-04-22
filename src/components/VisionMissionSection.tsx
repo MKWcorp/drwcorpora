@@ -1,16 +1,19 @@
 import '../styles/vision.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useLang } from '../i18n/LanguageContext'
 import { translations, t } from '../i18n/translations'
 
 export default function VisionMissionSection() {
   const { lang } = useLang()
+  const refVision = useScrollReveal<HTMLDivElement>({ threshold: 0.15 })
+  const refMission = useScrollReveal<HTMLDivElement>({ threshold: 0.15 })
   const v = translations.vision
   const m = translations.mission
 
   return (
     <section className="vision-mission">
       <div className="vm-container">
-        <div className="vm-row vision-row">
+        <div className="vm-row vision-row reveal reveal-left" ref={refVision}>
           <div className="vm-icon-wrap">
             <img src="/icon-vision.png" alt="Vision Icon" className="vm-icon" />
           </div>
@@ -20,7 +23,7 @@ export default function VisionMissionSection() {
           </div>
         </div>
         <div className="vm-divider" />
-        <div className="vm-row mission-row">
+        <div className="vm-row mission-row reveal reveal-right" ref={refMission}>
           <div className="vm-text mission-text">
             <h3 className="vm-title mission-title">{t(m.title, lang)}</h3>
             <p className="vm-desc">{t(m.desc, lang)}</p>

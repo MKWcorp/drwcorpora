@@ -1,10 +1,12 @@
 import { MapPin, Phone, Mail } from "lucide-react"
 import "../styles/footer.css"
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useLang } from '../i18n/LanguageContext'
 import { translations, t } from '../i18n/translations'
 
 export default function FooterSection() {
   const { lang } = useLang()
+  const refFooter = useScrollReveal<HTMLElement>({ threshold: 0.05 })
   const f = translations.footer
   const svc = translations.services
 
@@ -17,7 +19,7 @@ export default function FooterSection() {
   ]
 
   return (
-    <footer id="contact" className="footer-section">
+    <footer id="contact" className="footer-section reveal reveal-up" ref={refFooter}>
       <div className="footer-inner">
         <div className="footer-left">
           <div className="footer-logo">

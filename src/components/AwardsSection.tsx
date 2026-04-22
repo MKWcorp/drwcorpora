@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/awards.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useLang } from '../i18n/LanguageContext'
 import { translations, t } from '../i18n/translations';
 
@@ -28,6 +29,7 @@ const awards: AwardSlide[] = [
 ];
 
 export default function AwardsSection() {
+  const refSection = useScrollReveal<HTMLElement>({ threshold: 0.1 })
   const { lang } = useLang()
   const aw = translations.awards
   const [current, setCurrent] = useState(0);
@@ -39,7 +41,7 @@ export default function AwardsSection() {
   const titleLines = slide.title.split('\n');
 
   return (
-    <section className="awards-section">
+    <section className="awards-section reveal reveal-up" ref={refSection}>
       <div className="awards-slider">
         {/* Background foto */}
         <img
