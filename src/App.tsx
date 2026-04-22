@@ -6,7 +6,7 @@ import VisionMissionSection from './components/VisionMissionSection'
 import AwardsSection from './components/AwardsSection'
 import ServicesSection from './components/ServicesSection'
 import GallerySection from './components/GallerySection'
-import ContactFooter from './components/ContactFooter'
+import FooterSection from './components/FooterSection'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <AwardsSection />
       <ServicesSection />
       <GallerySection />
-      <ContactFooter />
+      <FooterSection />
     </div>
   )
 }

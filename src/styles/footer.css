@@ -1,0 +1,154 @@
+/* =============================================
+   FOOTER SECTION
+   Frame: Vertical, Fixed 1280px, Hug 308px
+   BG: gradient #60569A -> #333333
+   ============================================= */
+
+.footer-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #60569A 0%, #333333 100%);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ===== INNER (logo+nav kiri, kontak kanan) ===== */
+.footer-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 48px 64px 32px 64px;
+  gap: 64px;
+  flex: 1;
+}
+
+/* ===== LEFT: Logo + Nav ===== */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 220px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1;
+}
+
+.footer-logo-name {
+  font-family: "Geist", "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0;
+}
+
+.footer-logo-sub {
+  font-family: "Geist", "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.3em;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav-link {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+  color: #fff;
+}
+
+/* ===== RIGHT: Contact ===== */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 280px;
+}
+
+.footer-contact-title {
+  font-family: "Lora", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.footer-contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(255,255,255,0.85);
+  font-size: 13.5px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+}
+
+.footer-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: rgba(255,255,255,0.75);
+}
+
+/* ===== COPYRIGHT ===== */
+.footer-copyright {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding: 16px 64px;
+  text-align: center;
+}
+
+.footer-copyright p {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    padding: 40px 24px 24px 24px;
+    gap: 32px;
+  }
+  .footer-copyright {
+    padding: 16px 24px;
+  }
+}
