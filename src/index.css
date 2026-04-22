@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #5B4B8A 0%, #8B5CF6 100%);
+  background: linear-gradient(135deg, #60569A 0%, #7B6BB5 100%);
   color: white;
 }
 
@@ -44,12 +44,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary {
   background: white;
-  color: #5B4B8A;
-  border: 2px solid #5B4B8A;
+  color: #60569A;
+  border: 2px solid #60569A;
 }
 
 .btn-secondary:hover {
-  background: #5B4B8A;
+  background: #60569A;
   color: white;
 }
 

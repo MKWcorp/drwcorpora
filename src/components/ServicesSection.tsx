@@ -160,12 +160,6 @@ export default function ServicesSection() {
           </div>
         )}
       </div>
-
-      {/* CTA */}
-      <div className="services-cta">
-        <p>Ingin mengetahui bagaimana layanan kami dapat membantu bisnis Anda?</p>
-        <button className="btn btn-primary">Konsultasi Gratis Sekarang</button>
-      </div>
-    </section>
+</section>
   )
 }

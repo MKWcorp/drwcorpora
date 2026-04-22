@@ -48,14 +48,14 @@
 }
 
 .filter-btn:hover {
-  border-color: #e91e63;
-  color: #e91e63;
+  border-color: #60569A;
+  color: #60569A;
 }
 
 .filter-btn.active {
-  background: #e91e63;
+  background: #60569A;
   color: white;
-  border-color: #e91e63;
+  border-color: #60569A;
 }
 
 .services-frame {
@@ -78,7 +78,7 @@
 }
 
 .client-card {
-  background: #FFFFFF;
+  background: #EEEBE6;
   width: 100%;
   height: 240px;
   border-radius: 32px;
@@ -140,14 +140,14 @@
 }
 
 .page-btn:hover:not(:disabled) {
-  border-color: #e91e63;
-  color: #e91e63;
+  border-color: #60569A;
+  color: #60569A;
 }
 
 .page-btn.active {
-  background: #e91e63;
+  background: #60569A;
   color: white;
-  border-color: #e91e63;
+  border-color: #60569A;
 }
 
 .page-btn:disabled {
@@ -155,41 +155,6 @@
   cursor: not-allowed;
 }
 
-.services-cta {
-  text-align: center;
-  padding: 2.5rem 2rem;
-  background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
-  border-radius: 20px;
-  color: white;
-  max-width: 1280px;
-  margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.services-cta p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  font-family: "Poppins", sans-serif;
-}
-
-.services-cta .btn {
-  background: #EEEBE6;
-  color: #e91e63;
-  font-weight: 600;
-  padding: 12px 32px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  font-family: "Poppins", sans-serif;
-}
-
-.services-cta .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
 
 @media (max-width: 1024px) {
   .services-frame {
