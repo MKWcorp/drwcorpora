@@ -1,19 +1,24 @@
 import { MapPin, Phone, Mail } from "lucide-react"
 import "../styles/footer.css"
-
-const NAV_LINKS = [
-  { label: "About us", href: "#about" },
-  { label: "Vision & Mission", href: "#vision" },
-  { label: "Awards", href: "#awards" },
-  { label: "Our Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-]
+import { useLang } from '../i18n/LanguageContext'
+import { translations, t } from '../i18n/translations'
 
 export default function FooterSection() {
+  const { lang } = useLang()
+  const f = translations.footer
+  const svc = translations.services
+
+  const NAV_LINKS = [
+    { label: t(f.navLinks.about, lang),    href: "#about" },
+    { label: t(f.navLinks.vision, lang),   href: "#vision" },
+    { label: t(f.navLinks.awards, lang),   href: "#awards" },
+    { label: t(f.navLinks.services, lang), href: "#services" },
+    { label: t(f.navLinks.gallery, lang),  href: "#gallery" },
+  ]
+
   return (
     <footer id="contact" className="footer-section">
       <div className="footer-inner">
-        {/* Logo + Nav */}
         <div className="footer-left">
           <div className="footer-logo">
             <img src="/drw-logo-icon.png" alt="DRW Logo" className="footer-logo-img" />
@@ -30,14 +35,12 @@ export default function FooterSection() {
             ))}
           </nav>
         </div>
-
-        {/* Contact */}
         <div className="footer-right">
-          <h3 className="footer-contact-title">Contact US</h3>
+          <h3 className="footer-contact-title">{t(f.contact, lang)}</h3>
           <div className="footer-contact-items">
             <div className="footer-contact-item">
               <MapPin size={18} className="footer-icon" />
-              <span>Karang Jambe, Banguntapan,<br />Banguntapan District, Bantul Regency,<br />Special Region of Yogyakarta</span>
+              <span>{t(f.address, lang)}</span>
             </div>
             <div className="footer-contact-item">
               <Phone size={18} className="footer-icon" />
@@ -50,10 +53,8 @@ export default function FooterSection() {
           </div>
         </div>
       </div>
-
-      {/* Copyright */}
       <div className="footer-copyright">
-        <p>Copyright &copy; 2026</p>
+        <p>{t(f.copyright, lang)}</p>
       </div>
     </footer>
   )

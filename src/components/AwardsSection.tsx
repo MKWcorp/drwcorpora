@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import '../styles/awards.css';
+import '../styles/awards.css'
+import { useLang } from '../i18n/LanguageContext'
+import { translations, t } from '../i18n/translations';
 
 interface AwardSlide {
   image: string;
@@ -26,6 +28,8 @@ const awards: AwardSlide[] = [
 ];
 
 export default function AwardsSection() {
+  const { lang } = useLang()
+  const aw = translations.awards
   const [current, setCurrent] = useState(0);
 
   const prev = () => setCurrent((c) => (c - 1 + awards.length) % awards.length);
@@ -50,7 +54,7 @@ export default function AwardsSection() {
 
         {/* Teks kiri bawah */}
         <div className="awards-caption">
-          <p className="awards-label">Awards</p>
+          <p className="awards-label">{t(aw.label, lang)}</p>
           <h2 className="awards-title">
             {titleLines[0]}
             <br />

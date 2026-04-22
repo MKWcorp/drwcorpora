@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import '../styles/services.css'
+import { useLang } from '../i18n/LanguageContext'
+import { translations, t } from '../i18n/translations'
 
 export default function ServicesSection() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -84,7 +86,8 @@ export default function ServicesSection() {
     },
   ]
 
-  const filteredClients = activeCategory === 'All'
+  const activeCategory = categoryMap[activeCategoryKey] || 'All'
+  const filteredClients = activeCategoryKey === 'all'
     ? clients
     : clients.filter(client => client.category === activeCategory)
 
@@ -94,8 +97,8 @@ export default function ServicesSection() {
     currentPage * ITEMS_PER_PAGE
   )
 
-  const handleCategoryChange = (category: string) => {
-    setActiveCategory(category)
+  const handleCategoryChange = (key: string) => {
+    setActiveCategoryKey(key)
     setCurrentPage(1)
   }
 
@@ -103,18 +106,18 @@ export default function ServicesSection() {
     <section id="services" className="services">
       {/* Header */}
       <div className="services-header">
-        <h2>OUR SERVICES</h2>
+        <h2>{t(svc.title, lang)}</h2>
       </div>
 
       {/* Category Filter */}
       <div className="category-filter">
-        {categories.map((category) => (
+        {categories.map((cat) => (
           <button
-            key={category}
-            className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
-            onClick={() => handleCategoryChange(category)}
+            key={cat.key}
+            className={`filter-btn ${activeCategoryKey === cat.key ? 'active' : ''}`}
+            onClick={() => handleCategoryChange(cat.key)}
           >
-            {category}
+            {cat.label}
           </button>
         ))}
       </div>
