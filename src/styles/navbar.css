@@ -47,7 +47,8 @@
 }
 
 .navbar.scrolled .logo-img {
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.12));
+  /* Warna #60569A: hue-rotate + saturate dari grayscale */
+  filter: invert(33%) sepia(40%) saturate(800%) hue-rotate(220deg) brightness(85%) contrast(90%);
 }
 
 /* Logo text group */
