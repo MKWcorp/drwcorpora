@@ -45,7 +45,7 @@ export default function FooterSection() {
             </div>
             <div className="footer-contact-item">
               <Mail size={18} className="footer-icon" />
-              <span>./@email.com</span>
+              <span>info@drwcorpora.com</span>
             </div>
           </div>
         </div>
